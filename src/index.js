@@ -15,7 +15,7 @@ export const run = (rules, game) => {
     if (game(userName) === true) {
       counter += 1;
     } else {
-      counter = 0;
+      return;
     }
   }
 
