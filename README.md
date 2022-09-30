@@ -12,8 +12,8 @@ This is the pack of five cli games.
 * Define the number is prime or not.
 
 ## How to install ##
-`make install`
-`npm link`
+* make install
+* npm link
 
 [![asciicast](https://asciinema.org/a/RxAc12x52uRmu7STWGMdC6Nvc.svg)](https://asciinema.org/a/RxAc12x52uRmu7STWGMdC6Nvc)
 

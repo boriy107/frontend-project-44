@@ -2,7 +2,7 @@ import {
   run, checkAnswer, askQuestion, askAnswer, randomNumber,
 } from '../index.js';
 
-const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const rules = "Answer 'yes' if number even otherwise answer 'no'.";
 
 const game = (userName) => {
   const currentNumber = randomNumber();
