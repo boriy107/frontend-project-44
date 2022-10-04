@@ -10,10 +10,14 @@ This is the pack of five cli games.
 * Brain-progression: find the missing number of progression;
 * Brain-prime: define the number is prime or not.
 
+# Requirements #
+You should install latest version of node.js.
+
 # How to install #
 ```bash
 make install
-
+```
+```bash
 npm link
 ```
 

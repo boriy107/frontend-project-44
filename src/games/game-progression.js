@@ -1,6 +1,7 @@
 import {
-  run, checkAnswer, askQuestion, askAnswer, randomNumber,
+  run, checkAnswer, askQuestion, askAnswer,
 } from '../index.js';
+import { randomNumber } from '../helpers.js';
 
 const rules = 'What number is missing in the progression?';
 

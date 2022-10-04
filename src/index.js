@@ -38,5 +38,3 @@ export const askQuestion = (question) => {
 };
 
 export const askAnswer = () => readlineSync.question('Your answer: ');
-
-export const randomNumber = (min = 1, max = 99) => Math.floor(Math.random() * (max - min) + min);

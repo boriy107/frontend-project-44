@@ -1,13 +1,14 @@
 import {
-  run, checkAnswer, askQuestion, askAnswer, randomNumber,
+  run, checkAnswer, askQuestion, askAnswer,
 } from '../index.js';
+import { randomNumber } from '../helpers.js';
 
 const rules = 'What is the result of the expression?';
 
 const game = (userName) => {
   const operationSymbols = ['+', '-', '*'];
-  const firstNumber = randomNumber();
-  const secondNumber = randomNumber();
+  const firstNumber = randomNumber(0, 50);
+  const secondNumber = randomNumber(0, 50);
   const randomIndex = randomNumber(0, operationSymbols.length - 1);
   const operationSymbol = operationSymbols[randomIndex];
 

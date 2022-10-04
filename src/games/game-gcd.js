@@ -1,12 +1,13 @@
 import {
-  run, checkAnswer, askQuestion, askAnswer, randomNumber,
+  run, checkAnswer, askQuestion, askAnswer,
 } from '../index.js';
+import { randomNumber } from '../helpers.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
 const game = (userName) => {
-  let x = randomNumber();
-  let y = randomNumber();
+  let x = randomNumber(1, 100);
+  let y = randomNumber(1, 100);
 
   askQuestion(`${x} ${y}`);
 
