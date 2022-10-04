@@ -6,7 +6,7 @@ import { randomNumber } from '../helpers.js';
 const rules = 'What number is missing in the progression?';
 
 const game = (userName) => {
-  const firstNumber = randomNumber();
+  const firstNumber = randomNumber(1, 50);
   const step = randomNumber(1, 3);
   const arrLength = randomNumber(5, 9);
   const missingKey = randomNumber(1, arrLength - 1);
