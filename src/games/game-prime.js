@@ -3,7 +3,7 @@ import {
 } from '../index.js';
 import { randomNumber } from '../helpers.js';
 
-const rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const game = (userName) => {
   const currentNumber = randomNumber(2, 100);
