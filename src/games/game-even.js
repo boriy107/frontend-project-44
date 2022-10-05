@@ -3,7 +3,7 @@ import {
 } from '../index.js';
 import { randomNumber } from '../helpers.js';
 
-const rules = "Answer 'yes' if number even otherwise answer 'no'.";
+const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const game = (userName) => {
   const currentNumber = randomNumber(1, 50);
