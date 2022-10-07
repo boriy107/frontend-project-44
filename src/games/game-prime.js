@@ -1,14 +1,9 @@
-import {
-  run, checkAnswer, askQuestion, askAnswer,
-} from '../index.js';
 import { randomNumber } from '../helpers.js';
 
-const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+export const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const game = (userName) => {
+export const game = () => {
   const currentNumber = randomNumber(2, 100);
-
-  askQuestion(currentNumber);
 
   let correctAnswer = 'yes';
   for (let i = 2; i < currentNumber; i += 1) {
@@ -17,11 +12,5 @@ const game = (userName) => {
     }
   }
 
-  const answer = askAnswer();
-
-  return checkAnswer(answer, correctAnswer, userName);
-};
-
-export default () => {
-  run(rules, game);
+  return [currentNumber, correctAnswer];
 };

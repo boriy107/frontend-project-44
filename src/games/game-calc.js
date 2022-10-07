@@ -1,18 +1,15 @@
-import {
-  run, checkAnswer, askQuestion, askAnswer,
-} from '../index.js';
 import { randomNumber } from '../helpers.js';
 
-const rules = 'What is the result of the expression?';
+export const rules = 'What is the result of the expression?';
 
-const game = (userName) => {
+export const game = () => {
   const operationSymbols = ['+', '-', '*'];
   const firstNumber = randomNumber(0, 50);
   const secondNumber = randomNumber(0, 50);
   const randomIndex = randomNumber(0, operationSymbols.length - 1);
   const operationSymbol = operationSymbols[randomIndex];
 
-  askQuestion(`${firstNumber} ${operationSymbol} ${secondNumber}`);
+  const question = `${firstNumber} ${operationSymbol} ${secondNumber}`;
 
   let correctAnswer;
   if (operationSymbol === '+') {
@@ -22,15 +19,7 @@ const game = (userName) => {
   } else {
     correctAnswer = firstNumber * secondNumber;
   }
+  correctAnswer = String(correctAnswer);
 
-  let answer = askAnswer();
-  if (!Number.isNaN(Number(answer))) {
-    answer = Number(answer);
-  }
-
-  return checkAnswer(answer, correctAnswer, userName);
-};
-
-export default () => {
-  run(rules, game);
+  return [question, correctAnswer];
 };

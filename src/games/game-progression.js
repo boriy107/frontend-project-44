@@ -1,11 +1,8 @@
-import {
-  run, checkAnswer, askQuestion, askAnswer,
-} from '../index.js';
 import { randomNumber } from '../helpers.js';
 
-const rules = 'What number is missing in the progression?';
+export const rules = 'What number is missing in the progression?';
 
-const game = (userName) => {
+export const game = () => {
   const firstNumber = randomNumber(1, 50);
   const step = randomNumber(1, 3);
   const arrLength = randomNumber(5, 9);
@@ -22,18 +19,9 @@ const game = (userName) => {
     }
   }
 
-  askQuestion(`${arrNumbers.slice(' ').join(' ')}`);
+  const question = `${arrNumbers.slice(' ').join(' ')}`;
 
-  const correctAnswer = missingNumber;
+  const correctAnswer = String(missingNumber);
 
-  let answer = askAnswer();
-  if (!Number.isNaN(Number(answer))) {
-    answer = Number(answer);
-  }
-
-  return checkAnswer(answer, correctAnswer, userName);
-};
-
-export default () => {
-  run(rules, game);
+  return [question, correctAnswer];
 };
