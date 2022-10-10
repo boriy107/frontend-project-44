@@ -1,8 +1,9 @@
 import { randomNumber } from '../helpers.js';
+import run from '../index.js';
 
-export const rules = 'What is the result of the expression?';
+export const rule = 'What is the result of the expression?';
 
-export const game = () => {
+export const getRound = () => {
   const operationSymbols = ['+', '-', '*'];
   const firstNumber = randomNumber(0, 50);
   const secondNumber = randomNumber(0, 50);
@@ -22,4 +23,8 @@ export const game = () => {
   correctAnswer = String(correctAnswer);
 
   return [question, correctAnswer];
+};
+
+export default () => {
+  run(rule, getRound);
 };

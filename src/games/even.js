@@ -1,8 +1,9 @@
 import { randomNumber } from '../helpers.js';
+import run from '../index.js';
 
-export const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export const game = () => {
+export const getRound = () => {
   const currentNumber = randomNumber(1, 50);
 
   let correctAnswer = 'no';
@@ -11,4 +12,8 @@ export const game = () => {
   }
 
   return [currentNumber, correctAnswer];
+};
+
+export default () => {
+  run(rule, getRound);
 };

@@ -1,8 +1,9 @@
 import { randomNumber } from '../helpers.js';
+import run from '../index.js';
 
-export const rules = 'What number is missing in the progression?';
+const rule = 'What number is missing in the progression?';
 
-export const game = () => {
+const getRound = () => {
   const firstNumber = randomNumber(1, 50);
   const step = randomNumber(1, 3);
   const arrLength = randomNumber(5, 9);
@@ -24,4 +25,8 @@ export const game = () => {
   const correctAnswer = String(missingNumber);
 
   return [question, correctAnswer];
+};
+
+export default () => {
+  run(rule, getRound);
 };

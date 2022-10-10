@@ -1,8 +1,9 @@
 import { randomNumber } from '../helpers.js';
+import run from '../index.js';
 
-export const rules = 'Find the greatest common divisor of given numbers.';
+export const rule = 'Find the greatest common divisor of given numbers.';
 
-export const game = () => {
+export const getRound = () => {
   let x = randomNumber(1, 100);
   let y = randomNumber(1, 100);
 
@@ -17,4 +18,8 @@ export const game = () => {
   correctAnswer = String(correctAnswer);
 
   return [question, correctAnswer];
+};
+
+export default () => {
+  run(rule, getRound);
 };
