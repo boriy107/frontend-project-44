@@ -1,15 +1,14 @@
-import { randomNumber } from '../helpers.js';
+import { getRandomNumber } from '../helpers.js';
 import run from '../index.js';
 
-export const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export const getRound = () => {
-  const currentNumber = randomNumber(1, 50);
+const isEven = (x) => x % 2 === 0;
 
-  let correctAnswer = 'no';
-  if (currentNumber % 2 === 0) {
-    correctAnswer = 'yes';
-  }
+const getRound = () => {
+  const currentNumber = getRandomNumber(1, 50);
+
+  const correctAnswer = isEven(currentNumber) ? 'yes' : 'no';
 
   return [currentNumber, correctAnswer];
 };

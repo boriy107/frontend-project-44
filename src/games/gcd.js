@@ -1,21 +1,26 @@
-import { randomNumber } from '../helpers.js';
+import { getRandomNumber } from '../helpers.js';
 import run from '../index.js';
 
-export const rule = 'Find the greatest common divisor of given numbers.';
+const rule = 'Find the greatest common divisor of given numbers.';
 
-export const getRound = () => {
-  let x = randomNumber(1, 100);
-  let y = randomNumber(1, 100);
-
-  const question = `${x} ${y}`;
-
+const getGcdResult = (a, b) => {
+  let x = a;
+  let y = b;
   while (y) {
     const t = y;
     y = x % y;
     x = t;
   }
-  let correctAnswer = x;
-  correctAnswer = String(correctAnswer);
+  return x;
+};
+
+const getRound = () => {
+  const a = getRandomNumber(1, 100);
+  const b = getRandomNumber(1, 100);
+
+  const question = `${a} ${b}`;
+
+  const correctAnswer = String(getGcdResult(a, b));
 
   return [question, correctAnswer];
 };

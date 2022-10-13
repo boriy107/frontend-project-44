@@ -1,26 +1,37 @@
-import { randomNumber } from '../helpers.js';
+import { getRandomNumber } from '../helpers.js';
 import run from '../index.js';
 
-export const rule = 'What is the result of the expression?';
+const rule = 'What is the result of the expression?';
 
-export const getRound = () => {
-  const operationSymbols = ['+', '-', '*'];
-  const firstNumber = randomNumber(0, 50);
-  const secondNumber = randomNumber(0, 50);
-  const randomIndex = randomNumber(0, operationSymbols.length - 1);
-  const operationSymbol = operationSymbols[randomIndex];
+const operatorPlus = '+';
+const operatorMinus = '-';
+const operatorMultyply = '*';
+const operators = [
+  operatorPlus,
+  operatorMinus,
+  operatorMultyply,
+];
 
-  const question = `${firstNumber} ${operationSymbol} ${secondNumber}`;
-
-  let correctAnswer;
-  if (operationSymbol === '+') {
-    correctAnswer = firstNumber + secondNumber;
-  } else if (operationSymbol === '-') {
-    correctAnswer = firstNumber - secondNumber;
-  } else {
-    correctAnswer = firstNumber * secondNumber;
+const getCalcResult = (x, y, operator) => {
+  let result = 0;
+  if (operator === operatorPlus) {
+    result = x + y;
+  } else if (operator === operatorMinus) {
+    result = x - y;
+  } else if (operator === operatorMultyply) {
+    result = x * y;
   }
-  correctAnswer = String(correctAnswer);
+  return result;
+};
+
+const getRound = () => {
+  const number1 = getRandomNumber(0, 50);
+  const number2 = getRandomNumber(0, 50);
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
+
+  const question = `${number1} ${operator} ${number2}`;
+
+  const correctAnswer = String(getCalcResult(number1, number2, operator));
 
   return [question, correctAnswer];
 };

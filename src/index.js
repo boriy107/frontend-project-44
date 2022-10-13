@@ -1,15 +1,15 @@
 import readlineSync from 'readline-sync';
 
-const maxRoundsCount = 3;
+const roundsCount = 3;
 
-export default (rule, game) => {
+export default (rule, getRound) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(rule);
 
-  for (let i = 0; i < maxRoundsCount; i += 1) {
-    const [question, correctAnswer] = game();
+  for (let i = 0; i < roundsCount; i += 1) {
+    const [question, correctAnswer] = getRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
