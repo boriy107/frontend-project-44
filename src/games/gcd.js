@@ -3,24 +3,23 @@ import run from '../index.js';
 
 const rule = 'Find the greatest common divisor of given numbers.';
 
-const getGcdResult = (a, b) => {
-  let x = a;
-  let y = b;
-  while (y) {
-    const t = y;
-    y = x % y;
-    x = t;
+const minRange = 1;
+const maxRange = 100;
+
+const findGcd = (x, y) => {
+  if (y !== 0) {
+    return findGcd(y, x % y);
   }
   return x;
 };
 
 const getRound = () => {
-  const a = getRandomNumber(1, 100);
-  const b = getRandomNumber(1, 100);
+  const number1 = getRandomNumber(minRange, maxRange);
+  const number2 = getRandomNumber(minRange, maxRange);
 
-  const question = `${a} ${b}`;
+  const question = `${number1} ${number2}`;
 
-  const correctAnswer = String(getGcdResult(a, b));
+  const correctAnswer = String(findGcd(number1, number2));
 
   return [question, correctAnswer];
 };

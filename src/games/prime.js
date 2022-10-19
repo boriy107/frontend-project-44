@@ -3,7 +3,13 @@ import run from '../index.js';
 
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+const minRange = -50;
+const maxRange = 50;
+
 const isPrime = (x) => {
+  if (x < 2) {
+    return false;
+  }
   for (let i = 2; i < x; i += 1) {
     if (x % i === 0) {
       return false;
@@ -13,11 +19,10 @@ const isPrime = (x) => {
 };
 
 const getRound = () => {
-  const currentNumber = getRandomNumber(2, 100);
+  const number = getRandomNumber(minRange, maxRange);
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
 
-  const correctAnswer = isPrime(currentNumber) ? 'yes' : 'no';
-
-  return [currentNumber, correctAnswer];
+  return [number, correctAnswer];
 };
 
 export default () => {

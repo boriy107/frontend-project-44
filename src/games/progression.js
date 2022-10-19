@@ -3,26 +3,31 @@ import run from '../index.js';
 
 const rule = 'What number is missing in the progression?';
 
-const getProgressionArray = (firstNumber, step, arrLength) => {
-  const arrNumbers = [firstNumber];
-  for (let i = firstNumber + step; arrNumbers.length < arrLength; i += step) {
-    arrNumbers.push(i);
+const minRange = 1;
+const maxRange = 50;
+const minStep = 1;
+const maxStep = 3;
+const minLength = 5;
+const maxLength = 9;
+
+const getProgression = (start, step, length) => {
+  const progression = [start];
+  for (let i = 1; i < length; i += 1) {
+    progression.push((step * i) + start);
   }
-  return arrNumbers;
+  return progression;
 };
 
 const getRound = () => {
-  const firstNumber = getRandomNumber(1, 50);
-  const step = getRandomNumber(1, 3);
-  const arrLength = getRandomNumber(5, 9);
-  const progressionArray = getProgressionArray(firstNumber, step, arrLength);
-  const missingKey = getRandomNumber(1, arrLength - 1);
-  const missingNumber = progressionArray[missingKey];
-  progressionArray[missingKey] = '..';
+  const start = getRandomNumber(minRange, maxRange);
+  const step = getRandomNumber(minStep, maxStep);
+  const length = getRandomNumber(minLength, maxLength);
+  const progression = getProgression(start, step, length);
+  const missedNumberIndex = getRandomNumber(1, length - 1);
+  const correctAnswer = String(progression[missedNumberIndex]);
+  progression[missedNumberIndex] = '..';
 
-  const question = `${progressionArray.slice(' ').join(' ')}`;
-
-  const correctAnswer = String(missingNumber);
+  const question = `${progression.slice(' ').join(' ')}`;
 
   return [question, correctAnswer];
 };
