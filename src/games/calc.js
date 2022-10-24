@@ -2,9 +2,7 @@ import { getRandomNumber } from '../helpers.js';
 import run from '../index.js';
 
 const rule = 'What is the result of the expression?';
-
 const operators = ['+', '-', '*'];
-
 const minRange = 0;
 const maxRange = 50;
 
@@ -17,7 +15,7 @@ const calculate = (x, y, operator) => {
     case '*':
       return x * y;
     default:
-      throw new Error('Unknown operator!');
+      throw new Error(`Unknown operator: ${operator}!`);
   }
 };
 

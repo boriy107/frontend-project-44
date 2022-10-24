@@ -2,16 +2,10 @@ import { getRandomNumber } from '../helpers.js';
 import run from '../index.js';
 
 const rule = 'Find the greatest common divisor of given numbers.';
-
 const minRange = 1;
 const maxRange = 100;
 
-const findGcd = (x, y) => {
-  if (y !== 0) {
-    return findGcd(y, x % y);
-  }
-  return x;
-};
+const findGcd = (x, y) => ((y !== 0) ? findGcd(y, x % y) : x);
 
 const getRound = () => {
   const number1 = getRandomNumber(minRange, maxRange);

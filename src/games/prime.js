@@ -2,7 +2,6 @@ import { getRandomNumber } from '../helpers.js';
 import run from '../index.js';
 
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
 const minRange = -50;
 const maxRange = 50;
 
@@ -10,7 +9,8 @@ const isPrime = (x) => {
   if (x < 2) {
     return false;
   }
-  for (let i = 2; i < x; i += 1) {
+  const limit = Math.sqrt(x);
+  for (let i = 2; i <= limit; i += 1) {
     if (x % i === 0) {
       return false;
     }
@@ -19,10 +19,10 @@ const isPrime = (x) => {
 };
 
 const getRound = () => {
-  const number = getRandomNumber(minRange, maxRange);
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+  const question = getRandomNumber(minRange, maxRange);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
-  return [number, correctAnswer];
+  return [String(question), correctAnswer];
 };
 
 export default () => {
