@@ -8,10 +8,11 @@ const maxRange = 50;
 const isEven = (x) => x % 2 === 0;
 
 const getRound = () => {
-  const question = getRandomNumber(minRange, maxRange);
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
+  const number = getRandomNumber(minRange, maxRange);
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
+  const question = String(number);
 
-  return [String(question), correctAnswer];
+  return [question, correctAnswer];
 };
 
 export default () => {
